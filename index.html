@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>80s Kiddo Ltd – Digital Products, Consulting & Consumer Brands</title>
+  <meta name="description" content="80s Kiddo Ltd is a UK-based company building digital products, consulting services, and consumer brands through technology, creativity, and human-centered design." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #0d0f14;
+      --ink-soft:   #1c2030;
+      --surface:    #f5f4f0;
+      --muted:      #6b7280;
+      --accent:     #c8a96e;
+      --accent-dim: rgba(200,169,110,0.12);
+      --white:      #ffffff;
+      --card-bg:    #ffffff;
+      --border:     #e5e4e0;
+      --radius:     4px;
+      --max:        1120px;
+      --transition: 0.25s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--surface);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(245,244,240,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 2rem; }
+    .container { max-width: var(--max); margin: 0 auto; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: var(--ink);
+      padding: 8rem 2rem 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(200,169,110,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: -10%;
+      left: -5%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(200,169,110,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.75rem;
+      border: 1px solid rgba(200,169,110,0.3);
+      padding: 0.35rem 0.85rem;
+      border-radius: 2rem;
+    }
+
+    .hero-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 1.05;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      max-width: 14ch;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(255,255,255,0.6);
+      max-width: 52ch;
+      margin-bottom: 3rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--ink);
+    }
+
+    .btn-primary:hover {
+      background: #d4b87a;
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.05);
+    }
+
+    /* ── INTRO ── */
+    #intro {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      color: var(--ink);
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .body-text {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+
+    .stat-row {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-item {}
+    .stat-value {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.25rem;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.35rem;
+      font-weight: 500;
+    }
+
+    /* decorative block */
+    .intro-visual {
+      background: var(--ink);
+      border-radius: 8px;
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro-visual::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -20%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(200,169,110,0.2) 0%, transparent 70%);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(200,169,110,0.12);
+      border: 1px solid rgba(200,169,110,0.25);
+      border-radius: 2rem;
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 500;
+      width: fit-content;
+    }
+
+    .pill::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .visual-quote {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: var(--white);
+      line-height: 1.4;
+      font-style: italic;
+      margin-top: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── SERVICES ── */
+    #services {
+      background: var(--surface);
+    }
+
+    .services-header {
+      text-align: center;
+      max-width: 56ch;
+      margin: 0 auto 4rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.25rem;
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 32px rgba(13,15,20,0.08);
+      transform: translateY(-2px);
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--accent-dim);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+    }
+
+    .card-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    .card-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .card-list li {
+      font-size: 0.875rem;
+      color: var(--muted);
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .card-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-sticky {
+      position: sticky;
+      top: 5rem;
+    }
+
+    .about-blocks {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .about-block {
+      padding: 2rem;
+      background: var(--surface);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .about-block-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+      color: var(--ink);
+    }
+
+    .about-block p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── PHILOSOPHY ── */
+    #philosophy {
+      background: var(--ink);
+    }
+
+    .philosophy-header {
+      text-align: center;
+      max-width: 52ch;
+      margin: 0 auto 4rem;
+    }
+
+    .philosophy-header .section-label { color: var(--accent); }
+    .philosophy-header .section-title { color: var(--white); }
+
+    .philosophy-statement {
+      text-align: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.75rem, 4vw, 3rem);
+      color: var(--white);
+      max-width: 22ch;
+      margin: 0 auto 4rem;
+      line-height: 1.25;
+      font-style: italic;
+    }
+
+    .philosophy-statement span { color: var(--accent); }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .principle {
+      background: var(--ink-soft);
+      padding: 2.5rem 2rem;
+      transition: background var(--transition);
+    }
+
+    .principle:hover { background: rgba(200,169,110,0.06); }
+
+    .principle-number {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .principle-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .principle p {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+    }
+
+    /* ── COMPANY INFO ── */
+    #company {
+      background: var(--surface);
+    }
+
+    .company-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .info-table tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-table tr:last-child { border-bottom: none; }
+
+    .info-table td {
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+
+    .info-table td:first-child {
+      color: var(--muted);
+      font-weight: 500;
+      width: 45%;
+    }
+
+    .info-table td:last-child {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: border-color var(--transition);
+    }
+
+    .contact-item:hover { border-color: var(--accent); }
+
+    .contact-item-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .contact-item-value {
+      font-size: 0.95rem;
+      color: var(--ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .contact-item-value:hover { color: var(--accent); }
+
+    .contact-note {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: var(--accent-dim);
+      border-radius: 8px;
+      border: 1px solid rgba(200,169,110,0.2);
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      padding: 2.5rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-brand {
+      font-family: 'DM Serif Display', serif;
+      color: var(--white);
+      font-size: 1rem;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .intro-grid,
+      .about-grid,
+      .contact-grid,
+      .company-grid { grid-template-columns: 1fr; gap: 3rem; }
+
+      .cards-grid,
+      .principles-grid { grid-template-columns: 1fr; }
+
+      .stat-row { gap: 1.5rem; }
+
+      .about-sticky { position: static; }
+
+      nav { padding: 0 1.25rem; }
+      .nav-links { gap: 1.25rem; }
+    }
+
+    @media (max-width: 600px) {
+      section { padding: 4rem 1.25rem; }
+      .nav-links { display: none; }
+      .hero-cta { flex-direction: column; }
+      .btn { text-align: center; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-brand">80s Kiddo Ltd</a>
+    <ul class="nav-links">
+      <li><a href="#intro">About</a></li>
+      <li><a href="#services">What We Do</a></li>
+      <li><a href="#philosophy">Philosophy</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <span class="hero-eyebrow">UK-based · Founded 2024</span>
+      <h1 class="hero-title">80s Kiddo <em>Ltd</em></h1>
+      <p class="hero-sub">Creating products, brands, and services that improve everyday life through technology, creativity, and human-centered design.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Contact Us</a>
+        <a href="#intro" class="btn btn-ghost">About Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO / ABOUT -->
+  <section id="intro">
+    <div class="container">
+      <div class="intro-grid">
+        <div>
+          <p class="section-label">Who We Are</p>
+          <h2 class="section-title">Built at the intersection of <em>technology</em> and creativity</h2>
+          <p class="body-text">80s Kiddo Ltd is a UK-based company focused on digital products, consulting services, and consumer brands. We combine technology, creativity, and practical problem solving to deliver work that creates real-world value.</p>
+          <p class="body-text">We work across sectors, building products people use and services businesses rely on. Every project starts with a clear problem and ends with something that works.</p>
+          <div class="stat-row">
+            <div class="stat-item">
+              <div class="stat-value">3</div>
+              <div class="stat-label">Practice Areas</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">UK</div>
+              <div class="stat-label">Registered</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">Global</div>
+              <div class="stat-label">Clients & Markets</div>
+            </div>
+          </div>
+        </div>
+        <div class="intro-visual">
+          <div class="pill">Digital Products</div>
+          <div class="pill">Consulting Services</div>
+          <div class="pill">Consumer Brands</div>
+          <p class="visual-quote">"We believe technology should feel human."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="services-header">
+        <p class="section-label">What We Do</p>
+        <h2 class="section-title">Three practice areas, one <em>guiding</em> principle</h2>
+        <p class="body-text">We work across digital products, consulting, and consumer brands — bringing the same standard of thinking to each.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">⬡</div>
+          <h3 class="card-title">Digital Products</h3>
+          <ul class="card-list">
+            <li>Mobile applications</li>
+            <li>Digital platforms</li>
+            <li>Community-driven products</li>
+            <li>Productivity tools</li>
+            <li>Consumer technology</li>
+            <li>AI-assisted solutions</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-icon">◈</div>
+          <h3 class="card-title">Consulting Services</h3>
+          <ul class="card-list">
+            <li>CRM and customer engagement</li>
+            <li>Marketing technology</li>
+            <li>Ecommerce operations</li>
+            <li>Customer data platforms</li>
+            <li>Personalisation</li>
+            <li>Data strategy</li>
+            <li>Digital transformation</li>
+            <li>Product delivery</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-icon">◇</div>
+          <h3 class="card-title">Consumer Brands</h3>
+          <ul class="card-list">
+            <li>Apparel</li>
+            <li>Lifestyle products</li>
+            <li>Digital communities</li>
+            <li>Creative media</li>
+            <li>Experience-led brands</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / FOUNDER -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-sticky">
+          <p class="section-label">About Us</p>
+          <h2 class="section-title">Founder-led. <em>Outcome</em> focused.</h2>
+          <p class="body-text">We welcome enquiries regarding consulting services, partnerships, product opportunities, and business collaborations.</p>
+          <a href="#contact" class="btn btn-primary" style="margin-top: 2rem; display: inline-block;">Get in Touch</a>
+        </div>
+        <div class="about-blocks">
+          <div class="about-block">
+            <p class="about-block-title">Our Background</p>
+            <p>80s Kiddo Ltd is founder-led by someone with experience across ecommerce, CRM, customer data platforms, marketing automation, personalisation, and digital product delivery. Our work spans major UK and US retailers, ecommerce platforms, and technology companies across multiple verticals.</p>
+          </div>
+          <div class="about-block">
+            <p class="about-block-title">Our Approach</p>
+            <p>Our work focuses on turning complex business and customer problems into clear, practical solutions. We don't build for complexity's sake. Every product, service, and brand we touch has to solve something real for someone real.</p>
+          </div>
+          <div class="about-block">
+            <p class="about-block-title">How We Work</p>
+            <p>We operate as a focused, founder-led organisation. That means direct access, clear communication, and full accountability. No layers, no handoffs to junior teams, no diluted output.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section id="philosophy">
+    <div class="container">
+      <div class="philosophy-header">
+        <p class="section-label">Our Philosophy</p>
+      </div>
+      <p class="philosophy-statement">We believe technology should feel <span>human.</span></p>
+      <div class="principles-grid">
+        <div class="principle">
+          <p class="principle-number">01</p>
+          <h3 class="principle-title">Simplicity</h3>
+          <p>The best solutions are clear, not clever. We strip away what doesn't serve the person using the product, and keep what does.</p>
+        </div>
+        <div class="principle">
+          <p class="principle-number">02</p>
+          <h3 class="principle-title">Creativity</h3>
+          <p>Good thinking comes from combining things that don't usually sit together. We bring creative instinct to every technical problem.</p>
+        </div>
+        <div class="principle">
+          <p class="principle-number">03</p>
+          <h3 class="principle-title">Meaningful Impact</h3>
+          <p>We measure success by whether something changes behaviour, not by whether it ships. Impact over output, every time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPANY INFO -->
+  <section id="company">
+    <div class="container">
+      <div class="company-grid">
+        <div>
+          <p class="section-label">Company Information</p>
+          <h2 class="section-title">Registered in the <em>United Kingdom</em></h2>
+          <p class="body-text">80s Kiddo Ltd is a private limited company registered in England and Wales.</p>
+        </div>
+        <div>
+          <table class="info-table">
+            <tr>
+              <td>Company Name</td>
+              <td>80s Kiddo Ltd</td>
+            </tr>
+            <tr>
+              <td>Company Number</td>
+              <td>15719938</td>
+            </tr>
+            <tr>
+              <td>Country of Registration</td>
+              <td>United Kingdom</td>
+            </tr>
+            <tr>
+              <td>Jurisdiction</td>
+              <td>England and Wales</td>
+            </tr>
+            <tr>
+              <td>Company Type</td>
+              <td>Private Limited Company</td>
+            </tr>
+            <tr>
+              <td>Status</td>
+              <td>Active</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <p class="section-label">Contact Us</p>
+          <h2 class="section-title">Let's talk about what <em>you need</em></h2>
+          <p class="body-text">We welcome enquiries regarding consulting services, partnerships, product opportunities, and business collaborations.</p>
+          <div class="contact-note">
+            Response times are typically within one to two business days. We're based in the United Kingdom and work with clients globally.
+          </div>
+        </div>
+        <div>
+          <div class="contact-items">
+            <div class="contact-item">
+              <span class="contact-item-label">General Enquiries</span>
+              <a href="mailto:hello@80skiddo.com" class="contact-item-value">hello@80skiddo.com</a>
+            </div>
+            <div class="contact-item">
+              <span class="contact-item-label">Business &amp; Partnerships</span>
+              <a href="mailto:partnerships@80skiddo.com" class="contact-item-value">partnerships@80skiddo.com</a>
+            </div>
+            <div class="contact-item">
+              <span class="contact-item-label">Location</span>
+              <span class="contact-item-value">United Kingdom</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-brand">80s Kiddo Ltd</span>
+      <span class="footer-copy">© 2026 80s Kiddo Ltd. All rights reserved. Registered in England and Wales · Company No. 15719938</span>
+      <ul class="footer-links">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>
